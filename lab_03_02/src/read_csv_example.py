@@ -49,6 +49,7 @@ def func3(data):
     for i in ages:
         summa += i
     mean_age = round(summa/len(ages),1)
+    print("Средний возраст: ")
     print(mean_age)
     """
     # Также существуют эквивалентые способы записи
