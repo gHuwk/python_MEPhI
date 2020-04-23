@@ -9,6 +9,10 @@
  - openpyxl
 
  - csv
+ 
+ - wordcloud
+ 
+ - pymorphy2
 
  - Стандартный набор библиотек версии Python 3.8
 
