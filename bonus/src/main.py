@@ -2,7 +2,7 @@ import openpyxl
 from statistics import mean
 import matplotlib.pyplot as plt
 from collections import  Counter
-# from wordcloud import WordCloud
+from wordcloud import WordCloud
 
 def average_salary(staff):
     all_salary = []
@@ -80,11 +80,11 @@ def show_statisctics(average_salary, ages, average_salary_by_age, average_men_sa
 def show_wordcloud(counter_obj):
     total_count = len(counter_obj)
     common = counter_obj.most_common(total_count)
-    # wc = WordCloud(width=2600, height=2200, background_color="white", relative_scaling=1.0,
-    #               collocations=False, min_font_size=10).generate_from_frequencies(dict(common))
+    wc = WordCloud(width=2600, height=2200, background_color="white", relative_scaling=1.0,
+                   collocations=False, min_font_size=10).generate_from_frequencies(dict(common))
     plt.axis("off")
     plt.figure(figsize=(9, 6))
-    # plt.imshow(wc, interpolation="bilinear")
+    plt.imshow(wc, interpolation="bilinear")
     plt.title("Должности")
     plt.xticks([])
     plt.yticks([])
@@ -107,7 +107,7 @@ def show_bar(counter_obj):
     plt.show()
 
 def main_tags():
-    input_file = './lab_04/Data.xlsx'
+    input_file = './bonus/Data.xlsx'
     staff = Counter()
     source_book = openpyxl.load_workbook(input_file)
     shield_names = source_book.sheetnames
@@ -123,7 +123,7 @@ def main_tags():
             if row[2].value is not None:
                 staff[row[2].value] += 1
     # case = 1 - wordcloud lib, case = 2 - primary plot bar
-    case = 2
+    case = 1
     if case == 1:
         show_wordcloud(staff)
     elif case == 2:
