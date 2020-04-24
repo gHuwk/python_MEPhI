@@ -13,6 +13,11 @@
  - wordcloud
  
  - pymorphy2
+ 
+ - requests
+ 
+ - lxml
+
 
  - Стандартный набор библиотек версии Python 3.8
 
