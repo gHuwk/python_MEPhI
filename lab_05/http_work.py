@@ -1,4 +1,5 @@
 import requests
+import json
 response = requests.get('https://yandex.ru')
 
 
@@ -24,14 +25,22 @@ def get_text(server):
     text = response.text
     print(text)
     return text
+
 def get_json(server):
     response = requests.get(server)
     json = response.json()
+
+def print_data_to_file(data):
+    file = open("./output.json", 'w', encoding="utf-8")
+    json.dump(data, file, ensure_ascii=False, indent=4)
+    file.close()
     
 def start():
     server = 'https://yandex.ru'
     server_status(server)
     get_text('https://api.github.com/events')
+    print_data_to_file(get_json('http://yandex.ru'))
+    
     
 if __name__ == "__main__":
     start()
